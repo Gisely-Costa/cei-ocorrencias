@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Registro de Ocorrências - CEI ÁTTILA DE ALMEIDA MIRANDA</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>CEI ÁTTILA DE ALMEIDA MIRANDA</h1>
+      <p class="sub">Sistema Online de Registro de Ocorrências</p>
+    </div>
+    <div>
+      <span id="userInfo" class="muted"></span>
+      <button id="btnLogout" class="btn ghost" style="display:none;">Sair</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- LOGIN -->
+    <section id="login-section" class="card">
+      <h2>Acesso dos Professores</h2>
+      <div class="field">
+        <label>E-mail</label>
+        <input id="login-email" type="email" placeholder="professor@escola.com.br" />
+      </div>
+      <div class="field">
+        <label>Senha</label>
+        <input id="login-password" type="password" placeholder="Sua senha" />
+      </div>
+      <div class="row">
+        <button id="btnLogin" class="btn primary">Entrar</button>
+        <button id="btnRegister" class="btn ghost">Cadastrar</button>
+        <button id="btnReset" class="btn ghost">Esqueci a senha</button>
+      </div>
+      <p id="login-error" class="error"></p>
+    </section>
+
+    <!-- APLICAÇÃO -->
+    <section id="main-section" class="hidden">
+      <section class="card">
+        <h2>Novo Registro</h2>
+
+        <div class="row">
+          <div class="field">
+            <label>Série</label>
+            <select id="serie">
+              <option value="">Selecione</option>
+              <option value="1">1ª Série</option>
+              <option value="2">2ª Série</option>
+              <option value="3">3ª Série</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Turma</label>
+            <select id="turma"></select>
+          </div>
+
+          <div class="field">
+            <label>Aluno</label>
+            <select id="aluno"></select>
+          </div>
+
+          <div class="field">
+            <label>Disciplina</label>
+            <select id="disciplina"></select>
+          </div>
+        </div>
+
+        <div class="row wrap">
+          <button id="btnGerenciarAlunos" class="btn small ghost" title="Editar lista de alunos da turma">Gerenciar Alunos</button>
+          <button id="btnGerenciarDisc" class="btn small ghost" title="Editar lista de disciplinas">Gerenciar Disciplinas</button>
+          <button id="btnGerenciarOcc" class="btn small ghost" title="Editar lista de ocorrências">Gerenciar Ocorrências</button>
+        </div>
+
+        <fieldset class="occ field">
+          <legend>Ocorrências</legend>
+          <div id="ocorrencias"></div>
+        </fieldset>
+
+        <div class="field">
+          <label>Observação</label>
+          <textarea id="observacao" rows="3" placeholder="Opcional"></textarea>
+        </div>
+
+        <div class="row">
+          <button id="btnSalvar" class="btn primary">Salvar Ocorrência</button>
+          <button id="btnLimpar" class="btn ghost">Limpar</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="row between">
+          <h2>Registros</h2>
+          <input id="pesquisa" type="search" placeholder="Pesquisar por nome do aluno..." />
+        </div>
+        <div id="lista"></div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Desenvolvido pela professora <strong>Gisely Costa</strong>
+  </footer>
+
+  <!-- Firebase (versão compat facilita o uso em script único) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+  <!-- Configuração (você preenche) e lógica -->
+  <script src="firebase-config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
